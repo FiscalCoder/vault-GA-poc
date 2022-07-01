@@ -1,5 +1,5 @@
 name: MERN Admin ERP testing 
-on: workflow_dispatch
+on: [push]
 
 jobs:
   build:
@@ -47,4 +47,7 @@ jobs:
       run: npm i
 
     - name: Transferring files
-      run: cp -r . ${{ env.SERVER_PATH }}
+      run: | 
+        rm -rf ${{ env.SERVER_PATH }}
+        mkdir ${{ env.SERVER_PATH }}
+        cp -r . ${{ env.SERVER_PATH }}
