@@ -46,8 +46,8 @@ jobs:
     - name: Installing Dependencies
       run: npm i
 
-    -name: Removing Docker Container if present
-     run: |
+    - name: Removing Docker Container if present
+      run: |
         sudo docker stop admin-erp || true
         sudo docker rm admin-erp || true
 
