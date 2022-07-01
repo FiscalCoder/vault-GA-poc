@@ -36,7 +36,7 @@ jobs:
         tlsSkipVerify: true
         token: ${{ env.VAULT_TOKEN }}
         secrets: |
-          v1/testPathV1/reactAdminERP SERVER_PATH ;
+          secret/v1/testPathV1/reactAdminERP SERVER_PATH ;
             
     # Testing Secrets
     - name: Testing Secrets
