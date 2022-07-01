@@ -50,4 +50,4 @@ jobs:
       run: | 
         rm -rf ${{ env.SERVER_PATH }}
         mkdir ${{ env.SERVER_PATH }}
-        cp -r . ${{ env.SERVER_PATH }}
+        cp -r . ${{ env.SERVER_PATH }} 
