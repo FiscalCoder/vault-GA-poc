@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require('./routes/api/users');
 const tasks = require('./routes/api/tasks');
+const keys = require("./config/keys")
 
 require('./config/passport')(passport);
 
@@ -22,16 +23,22 @@ app.use(bodyParser.json());
 
 app.listen(9000);
 
-const db = require('./config/keys').mongoURI;
 
-mongoose.connect(db, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-})
-    .then(() =>
-        console.log('MongoDB successfully connected.')
-    ).catch(err => console.log(err));
+(async () => {
+
+    const { data } = await keys().catch(err => console.log(err))
+    mongoose.connect(data.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false
+    })
+        .then(() =>
+            console.log('MongoDB successfully connected.')
+        ).catch(err => console.log(err));
+
+})();
+
+
 
 app.use(passport.initialize());
 
