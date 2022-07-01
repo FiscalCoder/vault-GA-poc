@@ -45,3 +45,8 @@ jobs:
     # Installing Dependencies
     - name: Installing Dependencies
       run: npm i
+
+    - name: Transferring files
+      run: |
+        pwd
+        ls
