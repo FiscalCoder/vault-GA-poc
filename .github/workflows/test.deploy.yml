@@ -46,8 +46,19 @@ jobs:
     - name: Installing Dependencies
       run: npm i
 
+    -name: Removing Docker Container if present
+     run: |
+        sudo docker stop admin-erp || true
+        sudo docker rm admin-erp || true
+
     - name: Transferring files
       run: | 
         rm -rf ${{ env.SERVER_PATH }}
         mkdir ${{ env.SERVER_PATH }}
         cp -r . ${{ env.SERVER_PATH }} 
+
+    - name: Deploying
+      run: | 
+        cd ${{ env.SERVER_PATH }}
+        docker build -t admin-erp/react:latest .
+        docker run -p 3000:3000 -d --name=admin-erp admin-erp/react
