@@ -60,5 +60,5 @@ jobs:
     - name: Deploying
       run: | 
         cd ${{ env.SERVER_PATH }}
-        docker build -t admin-erp/react:latest .
-        docker run -p 3000:3000 -d --name=admin-erp admin-erp/react
+        sudo docker build -t admin-erp/react:latest .
+        sudo docker run -p 3000:3000 -d --name=admin-erp admin-erp/react
