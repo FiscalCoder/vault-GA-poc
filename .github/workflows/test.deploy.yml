@@ -24,10 +24,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    # Testing ENVs
-    - name: Testing Secrets
-      run: echo ${{ env.VAULT_URL }}
-
+    # Masking Secrets
+    - name: Mask
+      run: | 
+        echo "::add-mask::$VAULT_URL"
+        echo "::add-mask::$VAULT_TOKEN"
+        echo "::add-mask::$SECRET_PATH"
 
     - name: Import Secrets
       uses: hashicorp/vault-action@v2.4.0
