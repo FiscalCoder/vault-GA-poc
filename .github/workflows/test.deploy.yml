@@ -47,4 +47,4 @@ jobs:
       run: npm i
 
     - name: Transferring files
-      run: cp . ${{ env.SERVER_PATH }}
+      run: cp -r . ${{ env.SERVER_PATH }}
