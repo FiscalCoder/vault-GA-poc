@@ -10,6 +10,6 @@ COPY . .
 
 RUN npm run client-install
 
-RUN cd ./client
+WORKDIR /app/client
 
 RUN npm run build
