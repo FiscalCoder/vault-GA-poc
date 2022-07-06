@@ -76,7 +76,7 @@ jobs:
         host: ec2-44-204-151-220.compute-1.amazonaws.com
         username: ubuntu
         key: ${{ env.PEM_KEY }}
-        port: ${{ "22" }}
+        port: 22
         envs: SERVER_PATH
         script: |
           echo ${{ env.SERVER_PATH }}
