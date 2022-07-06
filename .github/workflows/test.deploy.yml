@@ -67,19 +67,30 @@ jobs:
 
     - name: Getting Build
       run : docker cp admin-erp:/app/client/build .
+  
+    # - name: multiple command
+    #   uses: appleboy/ssh-action@master
+    #   env:
+    #     SERVER_PATH: ${{ env.SERVER_PATH }}
+    #   with:
+    #     host: ec2-44-204-151-220.compute-1.amazonaws.com
+    #     username: ubuntu
+    #     key: ${{ env.PEM_KEY }}
+    #     port: 22
+    #     envs: SERVER_PATH
+    #     script: |
+    #       echo ${{ env.SERVER_PATH }}
+    #       rm -rf ${{ env.SERVER_PATH }}
+    #       mkdir ${{ env.SERVER_PATH }}
+    #       cp -r . ${{ env.SERVER_PATH }} 
 
-    - name: multiple command
-      uses: appleboy/ssh-action@master
+    - name: ssh deploy
+      uses: easingthemes/ssh-deploy@v2.2.11
       env:
-        SERVER_PATH: ${{ env.SERVER_PATH }}
-      with:
-        host: ec2-44-204-151-220.compute-1.amazonaws.com
-        username: ubuntu
-        key: ${{ env.PEM_KEY }}
-        port: 22
-        envs: SERVER_PATH
-        script: |
-          echo ${{ env.SERVER_PATH }}
-          rm -rf ${{ env.SERVER_PATH }}
-          mkdir ${{ env.SERVER_PATH }}
-          cp -r . ${{ env.SERVER_PATH }} 
+        SSH_PRIVATE_KEY: ${{ env.PEM_KEY }}
+        ARGS: "-rltgoDzvO --delete"
+        SOURCE: "build/"
+        REMOTE_HOST: ec2-44-204-151-220.compute-1.amazonaws.com
+        REMOTE_USER: ubuntu
+        TARGET: /home/ubuntu
+        # EXCLUDE: "/dist/, /node_modules/"
