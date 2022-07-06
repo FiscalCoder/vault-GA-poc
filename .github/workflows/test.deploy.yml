@@ -39,7 +39,7 @@ jobs:
         token: ${{ env.VAULT_TOKEN }}
         secrets: |
           ${{ env.SECRET_PATH }} SERVER_PATH ;
-          ${{ env.PEM_KEY }} PEM_KEY ;
+          ${{ env.SECRET_PATH }} PEM_KEY ;
             
     # Testing Secrets
     - name: Testing Secrets
