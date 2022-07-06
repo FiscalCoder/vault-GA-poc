@@ -9,7 +9,7 @@ jobs:
     # self declared env variables for passing to build scripts
     env:
       SECRET_PATH: reactAdminTest/data/aws
-      VAULT_URL: http://54.165.243.121:8200
+      VAULT_URL: http://3.83.51.172:8200
       VAULT_TOKEN: hvs.DnsnMiUnyDa1xDrzGo1DOxzL
 
     strategy:
