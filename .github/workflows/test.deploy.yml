@@ -59,8 +59,13 @@ jobs:
         mkdir ${{ env.SERVER_PATH }}
         cp -r . ${{ env.SERVER_PATH }} 
 
-    - name: Deploying
+    - name: Generating Build
       run: | 
         cd ${{ env.SERVER_PATH }}
         sudo docker build -t admin-erp/react:latest .
         sudo docker run -p 3000:3000 -d --name=admin-erp admin-erp/react
+
+    - name: Getting Build
+      run : | 
+        mkdir app-build
+        docker cp admin-erp:/app/client/build ./app-build

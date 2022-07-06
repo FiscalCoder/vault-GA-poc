@@ -10,6 +10,6 @@ COPY . .
 
 RUN npm run client-install
 
-EXPOSE 3000
+RUN cd ./client
 
-CMD [ "npm", "run", "dev" ]
+RUN npm run build
