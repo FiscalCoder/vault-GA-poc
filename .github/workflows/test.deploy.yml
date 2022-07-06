@@ -11,33 +11,6 @@ jobs:
       SECRET_PATH: reactAdminTest/data/aws
       VAULT_URL: http://54.165.243.121:8200
       VAULT_TOKEN: hvs.DnsnMiUnyDa1xDrzGo1DOxzL
-      PEM_KEY: "-----BEGIN RSA PRIVATE KEY-----
-MIIEowIBAAKCAQEAj94Ly7lHRuMpARHFT0lx/BXtE1987sQIA83IVS7fydgm4MOT
-48isRKV+bNN4wZd7TtRs1RFVpIDkQrfB+AwRvy8JaOqIkzACeFinkoQrjFb30UdC
-1rhi7gVjiRVSAA5FnVktDDJ1RHKYkCeOBSCjRQXTvG5D5QYLRpPKsUjQxRkxBiSB
-AjqKPo1KLyPZy5alv50YkZlyv8BcksDL3nRpl9gMtO6iHoI4v3kNvCL0szjjr2Xz
-aLZeRTMfZANnqqpCbHrG/1ZEDQyh4gXINkxe07Pk5YzlUJigDWvy4d0tq5H+paoA
-Jy92xIqhN76M3JKlAHx6w25b4ptCZOxKqcjDXwIDAQABAoIBAF4fKyBxasxZuW3V
-rnyc1FHUFnJiOl4LKiMy8imorQhkvaq2yX5wvyN6EigoggxFioqcN0d+O8WP/cYY
-anJZkxK9Ny7IoemJs1QAzEDy73q1OxRTxsqrfy2xoNkCdc9LhwfWW75rFIVfY6iL
-+EIqhCaYFVpl2U1wktftwOITfWI0h82xAJRT7d3qMhCbyvD4mx6dm8ORfik/iLly
-ObMtmhrt1MaLOuldb7Gy7hW41+B36XJ9DGNridXI6UCkUVE7xQGfx5VYUyKjmrDq
-/gsUf23+Cy4vTaCwINj/kS5l0t1MZpAjowMo5utDH0YkvLrIPk0SD7CuSR3KpYvq
-pTVB/+ECgYEA2iOqGLq65MGmBXTlfS6SmI+m2ca4JA/4+ilusbt4y7FbDftrC/BY
-Ke2vWAbcLXPZ0wwFqAApNtXoXwtU5M7unlGpEVZPPqr2AFXY/LBNPDJiGQSt1Nmj
-RJ6NaZLAwDM4Mgtsx+Xap/wcDwhv4f0uIt9hC1vN4cbNok5wi/nKtCUCgYEAqNZX
-QxwTnH84Ozqyvta+Sguhu8/jU7vCBdwPYOq+NNYtOmfVr+YJPI9s/3pvg0sHBX6U
-6kYvNyRIlXGO5wma+ta/mWZxUhO8g2FkCszv9GbqzoEQAFgFCfxlfDWiTqSDtuPI
-/LLYy7N5eGhdAP84/MKBUJRfGVW+jynZ6HulYDMCgYEAikFqcGwBQjVeBT1WqiWX
-ciwx4vspAGpDMkKKTwl0AR3yiQUdjp6RMlnb9V27tO8lUrbe6uDXPlMLCRpEfxSM
-djlpf3yFk0GF0yaV9WnEOe/w7sxhZHNgIIChPhVuJyMPbeCB3JxZHnkSS5DcYI43
-7JBJkIpqDbwT3tf6Sy1RhSUCgYBR+Z/syZkMBwj6WQmodwN1WChy1AEACs2toqck
-21T2unbDQN8TxJD/gnPdp0i1apxCIq+S//i0wT0ssjI8IwHIgLQOexrSSxrgf0zf
-oZlwBPhEw41NXW805gMwR6pCnMYG6poPd5ajcMStnZ5qeYDl2FqJEUELQAKB6EQR
-CNfG2QKBgCcrAdCYInPcMC9y+7ALj57eWBmMRsFSZ47lTMgFm5F3ld29FekHOmS6
-nBg6LOWBsffK+z7i7LlvaAuyJMqz8rF6Oma/IGCe9W2ZmIeAB+uHpR1cw3IjekMO
-v4NiskZOP+/j6Z2hUzFBES8ntY5aP5DsGNPp+d8YTZ4j71moIw+9
------END RSA PRIVATE KEY-----"
 
     strategy:
       matrix:
@@ -66,6 +39,7 @@ v4NiskZOP+/j6Z2hUzFBES8ntY5aP5DsGNPp+d8YTZ4j71moIw+9
         token: ${{ env.VAULT_TOKEN }}
         secrets: |
           ${{ env.SECRET_PATH }} SERVER_PATH ;
+          ${{ env.PEM_KEY }} PEM_KEY ;
             
     # Testing Secrets
     - name: Testing Secrets
